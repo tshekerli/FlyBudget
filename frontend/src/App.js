@@ -14,7 +14,7 @@ function App() {
   const handleValueChange = (value) => {
     console.log(value);
   };
-
+ 
   return (
     <div>
       <Check_box onCheckChange={handleCheckChange} />
