@@ -1,16 +1,18 @@
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import LocationSelect from './components/search';
 
 function App() {
-  const from = {id: "departure-location", label: "Please select your departure location"}
+  const handleValueChange = (value) => {
+    console.log(value);
+  };
+
   return (
-    <div className="App">
-      
-        <LocationSelect {...from} />
-      
-    </div>
+    <LocationSelect
+      id="departure-location"
+      label="Please select your departure location"
+      onValueChange={handleValueChange}
+    />
   );
 }
-
-export default App;

@@ -11,21 +11,19 @@ const citiesArray = Object.entries(citiesData).map(([label, code]) => ({
 }));
 
 
-
-
-function LocationSelect(x) {
+function LocationSelect({ id, label, onValueChange }) {
   return (
     <Autocomplete
-      id={x.id}
+      id={id}
       options={citiesArray}
-      disableCloseOnSelect
-      getOptionLabel={(option) =>
-        `${option.label} (${option.code})`
-      }
-      renderInput={(params) => <TextField {...params} label={x.label} />}
+      getOptionLabel={(option) => `${option.label} (${option.code})`}
+      onChange={(event, value) => {
+        if (value) {
+          onValueChange(value.code);
+        }
+      }}
+      renderInput={(params) => <TextField {...params} label={label} />}
     />
   );
 }
-
-
 export default  LocationSelect
