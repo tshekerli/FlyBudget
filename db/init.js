@@ -1,20 +1,5 @@
-import knex from "./config.js";
-import db from "../frontend/src/db/db.json" assert { type: 'json' };
+node init.js
+PS C:\Users\tural\OneDrive\Masaüstü\FlyBudget\db> node init.js
+(node:5452) ExperimentalWarning: Importing JSON modules is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
 
-const init = async () => {
-    const hasTable = await knex.schema.hasTable('Locations');
-    if (!hasTable) {
-        await knex.schema.createTable('Locations', table => {
-            table.increments('id').primary();
-            table.string('locationName');
-            table.string('code');
-        });
-
-
-        const data = Object.entries(db).map(([locationName, code]) => ({ locationName, code }));
-
-        await knex('Locations').insert(data);
-    }
-}
-
-init().catch(console.error);
