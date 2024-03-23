@@ -5,6 +5,7 @@ import LocationSelect from './components/search';
 import Check_box from './components/checkbox';
 import PaxSelect from './components/paxSelect';
 import DatePickerDrawer from './components/flexibleDates';
+import BasicSelect from './components/currency';
 
 
 
@@ -40,6 +41,8 @@ function App() {
 <PaxSelect onPaxChange={(newPax) => console.log(newPax)} />
 
 <DatePickerDrawer />
+
+<BasicSelect  />
     </div>
   );
 }
