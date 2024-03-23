@@ -4,7 +4,7 @@ import './App.css';
 import LocationSelect from './components/search';
 import Check_box from './components/checkbox';
 import PaxSelect from './components/paxSelect';
-
+import DatePickerDrawer from './components/flexibleDates';
 function App() {
   const [isChecked, setIsChecked] = useState(false);
 
@@ -34,6 +34,8 @@ function App() {
       )}
 
 <PaxSelect onPaxChange={(newPax) => console.log(newPax)} />
+
+<DatePickerDrawer />
     </div>
   );
 }
