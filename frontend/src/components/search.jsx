@@ -1,17 +1,23 @@
 import * as React from 'react';
+import { useState, useEffect } from 'react';
 import Autocomplete, { autocompleteClasses } from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
-import citiesData from '../db/db.json'; 
-
-
-
-const citiesArray = Object.entries(citiesData).map(([label, code]) => ({
-  label,
-  code
-}));
-
 
 function LocationSelect({ id, label, onValueChange }) {
+  const [citiesArray, setCitiesArray] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:5000/locations')
+      .then(response => response.json())
+      .then(data => {
+        const cities = data.map(({ locationName: label, code }) => ({
+          label,
+          code
+        }));
+        setCitiesArray(cities);
+      });
+  }, []);
+
   return (
     <Autocomplete
       id={id}
@@ -26,4 +32,5 @@ function LocationSelect({ id, label, onValueChange }) {
     />
   );
 }
-export default  LocationSelect
+
+export default LocationSelect;
