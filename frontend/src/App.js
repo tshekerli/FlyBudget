@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import LocationSelect from './components/search';
 import Check_box from './components/checkbox';
+import PaxSelect from './components/paxSelect';
 
 function App() {
   const [isChecked, setIsChecked] = useState(false);
@@ -31,6 +32,8 @@ function App() {
           onValueChange={handleValueChange}
         />
       )}
+
+<PaxSelect onPaxChange={(newPax) => console.log(newPax)} />
     </div>
   );
 }
