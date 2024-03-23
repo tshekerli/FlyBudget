@@ -1,6 +1,6 @@
-// create knex config object of postgresql database
+import knex from 'knex';
 
-const knex = require('knex')({
+const db = knex({
     client: 'pg',
     connection: {
         host: 'localhost',
@@ -11,4 +11,4 @@ const knex = require('knex')({
     }
 });
 
-module.exports = knex;
+export default db;
