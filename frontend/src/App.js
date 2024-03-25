@@ -6,8 +6,8 @@ import Check_box from './components/checkbox';
 import PaxSelect from './components/paxSelect';
 import DatePickerDrawer from './components/flexibleDates';
 import BasicSelect from './components/currency';
-import MyComponent from './components/widget';
 
+import Sortby from './components/sortby';
 
 
 
@@ -16,7 +16,8 @@ function App() {
  
   return (
     <div className="App">
-      <MyComponent/>
+      
+      <Sortby/>
     </div>
   )
 }
