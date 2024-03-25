@@ -1,8 +1,12 @@
-const receiveRequest = async (req, res) => {
+import {sendRequest} from "../services/requests.js";
+
+const search = async (req, res) => {
     try {
-        const { header } = req;
-        console.log(body);
-        res.status(200).send(body);
-    
-    
+        const response = await sendRequest(req.query);
+        res.status(200).json(response);
+    } catch (error) {
+        res.status(500).json({error: error.message});
     }
+};
+
+export {search};
