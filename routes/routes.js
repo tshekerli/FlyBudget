@@ -1,5 +1,5 @@
 import { Router } from "express";
-import {getLocationsController} from "../controllers/controller.js";
+import {getLocationsController} from "../controllers/DbController.js";
 import cors from "cors";
 import bodyParser from "body-parser";
 const router = Router();
