@@ -12,3 +12,4 @@ export const sendRequest = async (data) => {
     });
     return await response.json();
 };
+
