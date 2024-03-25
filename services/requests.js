@@ -1,5 +1,6 @@
+
+
 export const sendRequest = async (data) => {
-    
     const queryParams = new URLSearchParams(data).toString();
 
     const response = await fetch(`${process.env.SEARCH_URL}?${queryParams}`, {
