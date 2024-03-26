@@ -8,6 +8,7 @@ import DatePickerDrawer from './components/flexibleDates';
 import BasicSelect from './components/currency';
 
 import Sortby from './components/sortby';
+import { DatePicker } from '@mui/x-date-pickers';
 
 
 
@@ -16,7 +17,11 @@ function App() {
  
   return (
     <div className="App">
+      <Check_box/>
       
+      <DatePickerDrawer/>
+      <BasicSelect/>
+      <LocationSelect/>
       <Sortby/>
     </div>
   )
