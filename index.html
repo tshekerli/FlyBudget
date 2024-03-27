@@ -8,7 +8,18 @@
 <body>
     
 
-    <div id="widget-holder"></div><script data-width="1200px" data-passengers="1-0-0" data-currency="USD" data-lang="tr" data-affilid="tshekerliwasa" data-from="AZ" src="https://widgets.kiwi.com/scripts/widget-search-iframe.js"></script>
+    <script>
+        window.onload = function() {
+    fetch('https://ipapi.co/json/')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+};
+    </script>
     
 </body>
 </html>
