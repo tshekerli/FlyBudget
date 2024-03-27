@@ -5,8 +5,17 @@ const getLocations = async () => {
 }
 
 
+const registerUser = async (email, password) => {
+    return await knex('Users').insert({email, password});
+}
+
+const getUser = async (email) => {
+    return await knex('Users').where({email}).first();
+}
 
 
 
+export default {getLocations, registerUser, getUser};
 
-export default {getLocations};
+
+
