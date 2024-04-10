@@ -1,16 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import { Button, ClickAwayListener } from '@mui/material';
 
-export default function PaxSelect({ onPaxChange }) {
+export default function PaxSelect() {
   const [pax, setPax] = useState({ adults: 1, children: 0 });
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef(null);
-
-  useEffect(() => {
-    onPaxChange(pax);
-  }, [pax, onPaxChange]);
 
   const handleClickOutside = (event) => {
     if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {

@@ -24,7 +24,7 @@ export default function BasicSelect({ onCurrencyChange }) {
         <InputLabel id="demo-simple-select-label" sx={{ fontSize: '0.8rem' }}>Currency</InputLabel>
         <Select
           labelId="demo-simple-select-label"
-          id="demo-simple-select"
+          id="currency"
           value={currency}
           label="Currency"
           onChange={handleChange}
