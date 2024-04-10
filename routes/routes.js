@@ -1,6 +1,6 @@
 import { Router } from "express";
 import {getLocationsController, registerUserController, loginController, checkToken} from "../controllers/DbController.js";
-import { search } from "../controllers/requestController.js";
+import { search, receiveRequest } from "../controllers/requestController.js";
 import cors from "cors";
 import bodyParser from "body-parser";
 const router = Router();
@@ -15,4 +15,7 @@ router.post("/login", loginController);
 router.get("/checkToken",checkToken, (req, res) => {
     res.status(200).send("Token is valid");
 });
+router.post("/usersearch", receiveRequest )
+
+
 export default router;

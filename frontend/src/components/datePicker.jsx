@@ -11,23 +11,20 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 12,
-          // backgroundColor: "#F8F6E3",
-
         },
       },
     },
     MuiPickersPopper: {
       styleOverrides: {
         paper: {
-          borderRadius: 25, // adjust this value as needed
-          // backgroundColor: "#F8F6E3",
+          borderRadius: 25,
         },
       },
     },
   },
 });
 
-function BasicDatePicker({ className, id, labelText }) {
+function BasicDatePicker({ className, id, labelText, onChange }) {
   return (
     <ThemeProvider theme={theme}>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -38,6 +35,11 @@ function BasicDatePicker({ className, id, labelText }) {
             closeOnSelect={true}
             disablePast={true}
             views={["day"]}
+            onChange={(date) => {
+              if (date) {
+                onChange(date.format("DD/MM/YYYY"));
+              }
+            }}
             slotProps={{ field: { clearable: true } }}
             className={className}
             id={id}
