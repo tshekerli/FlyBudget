@@ -3,7 +3,10 @@ import BasicDatePicker from './datePicker';
 import Check_box from './checkbox';
 import { Button } from '@mui/material';
 
-function DatePickerDrawer(labeltext1, labeltext2) {
+
+
+
+function DatePickerDrawer({ id1, id2, labeltext1, labeltext2, buttontext })  {
   const [open, setOpen] = React.useState(false);
   const [dates, setDates] = React.useState({ departure: null, return: null });
   const [isReturn, setIsReturn] = React.useState(false);
@@ -22,22 +25,40 @@ function DatePickerDrawer(labeltext1, labeltext2) {
 
   return (
     <div>
-      <Button onClick={() => setOpen(!open)}>Please select departure date</Button>
+      <Button 
+  onClick={() => setOpen(!open)} 
+  sx={{ 
+    marginTop: '10px',
+    marginLeft: '25px',
+    borderRadius: '12px',
+    color: 'black',
+    border: '1px solid rgba(0, 0, 0, 0.5)'
+    
+  }}
+>
+  Please select {buttontext}
+</Button>
       <div style={{ display: open ? 'block' : 'none' }}>
         <label>
-          <Check_box onCheckChange={handleCheckChange} />
+          <Check_box 
+          sx={{
+            marginTop: '10px',
+            marginLeft: '25px'
+          
+          }}
+          onCheckChange={handleCheckChange} />
           Do you want to select flexible dates?
         </label>
         <BasicDatePicker
-          id="departure-date"
-          className="departure-date"
+          id={id1}
+          
           labelText={`Please select ${labeltext1}`}
           onDateChange={(date) => handleDateChange(date, 'departure')}
         />
         {isReturn && (
           <BasicDatePicker
-            id="return-date"
-            className="return-date"
+            id={id2}
+            
             labelText={`Please select ${labeltext2}`}
             onDateChange={(date) => handleDateChange(date, 'return')}
           />
