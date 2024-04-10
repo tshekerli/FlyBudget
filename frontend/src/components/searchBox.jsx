@@ -6,10 +6,14 @@ import Check_box from "./checkbox";
 import { Head } from "./searchHead";
 import SelectAutoWidth from "./sortby";
 import DatePickerDrawer from "./flexibleDates";
+import ButtonComponent from "./button";
+import { BorderAllRounded, Height } from "@mui/icons-material";
+
+
 
 function SearchBox() {
   return (
-    <div className="searchbox" style={{ width: "400px" }}>
+    <div className="searchbox" style={{ width: "400px", backgroundColor:"#F0F0F0" }}>
       <Head />
       <div style={{ marginLeft: "20px" }}>
         <p style={{ fontWeight: "bold" }}>Departure</p>
@@ -50,6 +54,10 @@ function SearchBox() {
         <BasicSelect style={{ marginTop: "10px" }} />
 
         <SelectAutoWidth />
+
+        <ButtonComponent text={"Search"} id={"search-button"} style={{width: "8rem", borderRadius: "10px", fontSize: "1.25rem", color:"black", borderColor:"black"}} />
+
+
       </div>
     </div>
   );
