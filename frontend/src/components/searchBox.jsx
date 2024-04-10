@@ -20,7 +20,7 @@ function SearchBox() {
         <p>Destination</p>
         <LocationSelect id={"arrival"} label={"City or airport"} />
       </div>
-      <div>
+      <div style={{marginLeft:"25px", marginTop:"20px"}}>
         <DatePickerDrawer
           id1="departure-from"
           id2="departure-to"
@@ -29,7 +29,7 @@ function SearchBox() {
           buttontext={"departure date"}
         />
       </div>
-      <div>
+      <div style={{marginLeft:"25px", marginTop:"20px"}}>
         <DatePickerDrawer
           id1="return-from"
           id2="return-to"

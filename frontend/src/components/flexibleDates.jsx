@@ -6,7 +6,7 @@ import { Button } from '@mui/material';
 
 
 
-function DatePickerDrawer({ id1, id2, labeltext1, labeltext2, buttontext })  {
+function DatePickerDrawer({ id1, id2, labeltext1, labeltext2, buttontext, })  {
   const [open, setOpen] = React.useState(false);
   const [dates, setDates] = React.useState({ departure: null, return: null });
   const [isReturn, setIsReturn] = React.useState(false);
@@ -28,8 +28,7 @@ function DatePickerDrawer({ id1, id2, labeltext1, labeltext2, buttontext })  {
       <Button 
   onClick={() => setOpen(!open)} 
   sx={{ 
-    marginTop: '10px',
-    marginLeft: '25px',
+    
     borderRadius: '12px',
     color: 'black',
     border: '1px solid rgba(0, 0, 0, 0.5)'
@@ -41,9 +40,9 @@ function DatePickerDrawer({ id1, id2, labeltext1, labeltext2, buttontext })  {
       <div style={{ display: open ? 'block' : 'none' }}>
         <label>
           <Check_box 
-          sx={{
-            marginTop: '10px',
-            marginLeft: '25px'
+          styling={{
+            
+            
           
           }}
           onCheckChange={handleCheckChange} />
@@ -53,7 +52,10 @@ function DatePickerDrawer({ id1, id2, labeltext1, labeltext2, buttontext })  {
           id={id1}
           
           labelText={`Please select ${labeltext1}`}
+          
           onDateChange={(date) => handleDateChange(date, 'departure')}
+          
+          
         />
         {isReturn && (
           <BasicDatePicker
