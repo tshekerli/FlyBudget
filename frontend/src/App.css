@@ -1,4 +1,47 @@
-.search-button{
-   
-    }
-}
+/* General Search Box */
+.searchbox {
+    width: 400px;
+    background-color: #F0F0F0;
+    padding: 20px; 
+    border-radius: 8px; /* Slightly rounded corners */
+  }
+  
+  /* Labels */
+  .searchbox p { 
+    font-weight: bold;
+    margin-bottom: 5px; 
+  }
+  
+  /* Input Fields (Adjust for your specific input types) */
+  .searchbox input[type="text"], 
+  .searchbox select {
+    width: 100%; 
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px; 
+  }
+  
+  /* Date Pickers (Assuming you want a consistent style) */
+  .searchbox .datePicker { 
+    /* ... your date picker styles ... */
+  }
+  
+  /* Buttons */
+  .searchbox button {
+    padding: 10px 20px;
+    background-color: #007bff; /* Example color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+  }
+  
+  .searchbox button:hover {
+    background-color: #0056b3; /* Slightly darker on hover */
+  }
+  
+  /* Consider adding more specific styles for individual components
+     if you want to customize further */
+  

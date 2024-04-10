@@ -7,24 +7,25 @@ import { Head } from "./searchHead";
 import SelectAutoWidth from "./sortby";
 import DatePickerDrawer from "./flexibleDates";
 import ButtonComponent from "./button";
-import { BorderAllRounded, Height } from "@mui/icons-material";
+
 
 
 
 function SearchBox() {
   return (
-    <div className="searchbox" style={{ width: "400px", backgroundColor:"#F0F0F0" }}>
+    <div className="searchbox" style={{ width: "400px", backgroundColor:"#F0F0F0", padding: '15px' }}>
       <Head />
-      <div style={{ marginLeft: "20px" }}>
-        <p style={{ fontWeight: "bold" }}>Departure</p>
+      <h2 style={{paddingLeft:"15px"}}>Search</h2>
+      <div style={{ paddingLeft: "15px" }}>
+        <p style={{ fontWeight: "bold", fontSize:"1rem" }}>Departure</p>
         <LocationSelect id={"departure"} label={"City or airport"} />
       </div>
 
-      <div style={{ marginLeft: "20px" }}>
+      <div style={{ paddingLeft: "15px" }}>
         <p>Destination</p>
         <LocationSelect id={"arrival"} label={"City or airport"} />
       </div>
-      <div style={{marginLeft:"25px", marginTop:"20px"}}>
+      <div style={{paddingLeft:"15px", marginTop:"15px"}}>
         <DatePickerDrawer
           id1="departure-from"
           id2="departure-to"
@@ -33,7 +34,7 @@ function SearchBox() {
           buttontext={"departure date"}
         />
       </div>
-      <div style={{marginLeft:"25px", marginTop:"20px"}}>
+      <div style={{paddingLeft:"15px", marginTop:"15px"}}>
         <DatePickerDrawer
           id1="return-from"
           id2="return-to"
@@ -48,16 +49,22 @@ function SearchBox() {
           display: "flex",
           flexDirection: "row",
           marginTop: "10px",
-          alignItems: "center",
+          justifyContent: "space-between",
+          padding:"10px 40px 10px 40px"
+
         }}
       >
-        <BasicSelect style={{ marginTop: "10px" }} />
+        <BasicSelect style={{ paddingLeft:"40px" }} />
 
         <SelectAutoWidth />
 
-        <ButtonComponent text={"Search"} id={"search-button"} style={{width: "8rem", borderRadius: "10px", fontSize: "1.25rem", color:"black", borderColor:"black"}} />
+        
 
 
+      </div>
+      <div style={{display: "flex", justifyContent:"space-between", padding:"20px 40px 20px 40px"}}>
+      <ButtonComponent text={"Clear"} id={"clear-button"} style={{width: "8rem", borderRadius: "10px", fontSize: "1.25rem", color:"black", borderColor:"black"}} />
+      <ButtonComponent text={"Search"} id={"search-button"} style={{width: "8rem", borderRadius: "10px", fontSize: "1.25rem", color:"black", borderColor:"black"}} />
       </div>
     </div>
   );
