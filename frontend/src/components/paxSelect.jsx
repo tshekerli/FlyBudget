@@ -3,7 +3,7 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import { Button, ClickAwayListener } from '@mui/material';
 
-export default function PaxSelect() {
+export default function PaxSelect({onChange}) {
   const [pax, setPax] = useState({ adults: 1, children: 0 });
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef(null);
@@ -13,6 +13,10 @@ export default function PaxSelect() {
       setOpen(false);
     }
   };
+
+  useEffect(() => {
+    onChange(pax);
+  }, [pax]);
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);

@@ -19,8 +19,6 @@ function SearchBox() {
     departureDateTo: '',
     returnDateFrom: '',
     returnDateTo: '',
-    paxAdult: '1',
-    paxChildren: '0',
     currency: '',
     sortBy: 'price',
 
