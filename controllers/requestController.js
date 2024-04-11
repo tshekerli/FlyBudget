@@ -23,25 +23,24 @@ const parseResponse = (response) => {
         };
     });
 };
-const search = async (req, res) => {
+const search = async (query) => {
     try {
-        const response = await sendRequest(req.query);
+        const response = await sendRequest(query);
+        console.log('Response:', response);
         const parsedResponse = parseResponse(response);
-        res.status(200).json(parsedResponse);
+        return parsedResponse;
+    } catch (error) {
+        throw new Error(error.message);
+    }
+};
+
+const receiveRequest = async (req, res) => {
+    try {
+        const response = await search(req.body);
+        res.status(200).json(response);
     } catch (error) {
         res.status(500).json({error: error.message});
     }
 };
 
-export {search};
-
-export const receiveRequest = async (req, res) => {
-    try {
-        console.log(req.body);
-        res.status(200).json({message: "Request received"});
-    } catch (error) {
-        res.status(500).json({error: error.message});
-    }
-    
-    
-}
+export  {search, receiveRequest};

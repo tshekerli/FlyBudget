@@ -5,44 +5,58 @@ import { Head } from "./searchHead";
 import SelectAutoWidth from "./sortby";
 import DatePickerDrawer from "./flexibleDates";
 import ButtonComponent from "./button";
-import  { useState } from 'react';
-
-
-
-
+import { useState } from "react";
 
 function SearchBox() {
   const [data, setData] = useState({
-    departure: '',
-    destination: '',
-    departureDateFrom: '',
-    departureDateTo: '',
-    returnDateFrom: '',
-    returnDateTo: '',
-    currency: '',
-    sortBy: 'price',
-
+    fly_from: "",
+    fly_to: "",
+    date_from: "",
+    date_to: "",
+    return_from: "",
+    return_to: "",
+    currency: "",
+    sortBy: "price",
+    adults: "1",
+    children: "0",
   });
 
   const handleFieldChange = (field) => (value) => {
-    console.log(`Setting ${field} to`, value);
-    setData(prevData => ({
-      ...prevData,
-      [field]: value,
-    }));
+    if (field === "pax") {
+      setData((prevData) => ({
+        ...prevData,
+        adults: value.adults.toString(),
+        children: value.children.toString(),
+      }));
+    } else {
+      setData((prevData) => ({
+        ...prevData,
+        [field]: value,
+      }));
+    }
   };
 
-  
-  
   const sendRequest = async () => {
     console.log('sendRequest function called');
     try {
+      let requestData = { ...data };
+      if (!requestData.date_to) {
+        requestData.date_to = requestData.date_from;
+      }
+      if (!requestData.return_to) {
+        requestData.return_to = requestData.return_from;
+      }
+      if (!requestData.return_from) {
+        delete requestData.return_from;
+        delete requestData.return_to;
+      }
+      
       const response = await fetch('http://localhost:5000/usersearch', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(requestData),
       });
       const responseData = await response.json();
       console.log(responseData);
@@ -51,65 +65,99 @@ function SearchBox() {
     }
   };
 
-
   return (
-    <div className="searchbox" style={{ width: "400px", backgroundColor:"#F0F0F0", padding: '15px' }}>
+    <div
+      className="searchbox"
+      style={{ width: "400px", backgroundColor: "#F0F0F0", padding: "15px" }}
+    >
       <Head />
-      <h2 style={{paddingLeft:"15px"}}>Search</h2>
+      <h2 style={{ paddingLeft: "15px" }}>Search</h2>
       <div style={{ paddingLeft: "15px" }}>
-        <p style={{ fontWeight: "bold", fontSize:"1rem" }}>Departure</p>
-        <LocationSelect id={"departure"} label={"City or airport"} onChange = {handleFieldChange('departure')}/>
+        <p style={{ fontWeight: "bold", fontSize: "1rem" }}>Departure</p>
+        <LocationSelect
+          id={"departure"}
+          label={"City or airport"}
+          onChange={handleFieldChange("fly_from")}
+        />
       </div>
 
       <div style={{ paddingLeft: "15px" }}>
         <p>Destination</p>
-        <LocationSelect id={"arrival"} label={"City or airport"} onChange={handleFieldChange('destination')}  />
+        <LocationSelect
+          id={"arrival"}
+          label={"City or airport"}
+          onChange={handleFieldChange("fly_to")}
+        />
       </div>
-      <div style={{paddingLeft:"15px", marginTop:"15px"}}>
+      <div style={{ paddingLeft: "15px", marginTop: "15px" }}>
         <DatePickerDrawer
           id1="departure-from"
           id2="departure-to"
           labeltext1="departure date from"
           labeltext2="departure date to"
           buttontext={"departure date"}
-          datechange1={handleFieldChange("departureDateFrom")}
-        datechange2={handleFieldChange("departureDateTo")}
+          datechange1={handleFieldChange("date_from")}
+          datechange2={handleFieldChange("date_to")}
         />
       </div>
-      <div style={{paddingLeft:"15px", marginTop:"15px"}}>
+      <div style={{ paddingLeft: "15px", marginTop: "15px" }}>
         <DatePickerDrawer
           id1="return-from"
           id2="return-to"
           labeltext1="return date from"
           labeltext2="return date to"
           buttontext={"return date"}
-          datechange1={handleFieldChange("returnDateFrom")}
-        datechange2={handleFieldChange("returnDateTo")}
+          datechange1={handleFieldChange("return_from")}
+          datechange2={handleFieldChange("return_to")}
         />
       </div>
-      <PaxSelect onChange = {handleFieldChange("pax")}/>
+      <PaxSelect onChange={handleFieldChange("pax")} />
       <div
         style={{
           display: "flex",
           flexDirection: "row",
           marginTop: "10px",
           justifyContent: "space-between",
-          padding:"10px 40px 10px 40px"
-
+          padding: "10px 40px 10px 40px",
         }}
       >
-        <BasicSelect style={{ paddingLeft:"40px" }} onCurrencyChange={handleFieldChange("currency")} />
+        <BasicSelect
+          style={{ paddingLeft: "40px" }}
+          onCurrencyChange={handleFieldChange("currency")}
+        />
 
         <SelectAutoWidth onChange={handleFieldChange("sortBy")} />
-
-        
-
-
       </div>
-      <div style={{display: "flex", justifyContent:"space-between", padding:"20px 40px 20px 40px"}}>
-      <ButtonComponent text={"Clear"} id={"clear-button"} style={{width: "8rem", borderRadius: "10px", fontSize: "1.25rem", color:"black", borderColor:"black"}} />
-      <ButtonComponent text={"Search"} id={"search-button"} style={{width: "8rem", borderRadius: "10px", fontSize: "1.25rem", color:"black", borderColor:"black"}} onClick = {async () => await sendRequest()} 
- />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          padding: "20px 40px 20px 40px",
+        }}
+      >
+        <ButtonComponent
+          text={"Clear"}
+          id={"clear-button"}
+          style={{
+            width: "8rem",
+            borderRadius: "10px",
+            fontSize: "1.25rem",
+            color: "black",
+            borderColor: "black",
+          }}
+        />
+        <ButtonComponent
+          text={"Search"}
+          id={"search-button"}
+          style={{
+            width: "8rem",
+            borderRadius: "10px",
+            fontSize: "1.25rem",
+            color: "black",
+            borderColor: "black",
+          }}
+          onClick={async () => await sendRequest()}
+        />
       </div>
     </div>
   );
