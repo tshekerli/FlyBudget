@@ -45,12 +45,13 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-export default function SelectAutoWidth() {
+export default function SelectAutoWidth({onChange}) {
   const [sort, setSort] = React.useState('');
 
   const handleChange = (event) => {
     setSort(event.target.value);
-    console.log('Selected value:', event.target.value);
+    
+    onChange(event.target.value); 
   };
 
   return (

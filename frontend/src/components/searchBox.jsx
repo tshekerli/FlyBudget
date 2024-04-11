@@ -100,7 +100,7 @@ function SearchBox() {
       >
         <BasicSelect style={{ paddingLeft:"40px" }} onCurrencyChange={handleFieldChange("currency")} />
 
-        <SelectAutoWidth onChange= {handleFieldChange("sortBy")} />
+        <SelectAutoWidth onChange={handleFieldChange("sortBy")} />
 
         
 
