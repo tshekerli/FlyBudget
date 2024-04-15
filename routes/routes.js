@@ -12,7 +12,7 @@ router.get("/locations", getLocationsController);
 router.get("/search", search)
 router.post("/register", registerUserController);
 router.post("/login", loginController);
-router.get("/checkToken",checkToken, (req, res) => {
+router.post("/checkToken",checkToken, (req, res) => {
     res.status(200).send("Token is valid");
 });
 router.post("/usersearch", receiveRequest )

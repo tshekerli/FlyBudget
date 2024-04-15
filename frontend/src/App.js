@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import SearchBox from './components/searchBox';
+
+import { SearchUi } from './components/SearchUi';
 
 
 function App() {
   
+  
  
   return (
     <div className="App">
-      <SearchBox/>
+      <SearchUi/>
     </div>
   )
 }

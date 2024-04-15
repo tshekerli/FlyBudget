@@ -7,7 +7,7 @@ import DatePickerDrawer from "./flexibleDates";
 import ButtonComponent from "./button";
 import { useState } from "react";
 
-function SearchBox() {
+function SearchBox({onFetch}) {
   const [data, setData] = useState({
     fly_from: "",
     fly_to: "",
@@ -59,7 +59,7 @@ function SearchBox() {
         body: JSON.stringify(requestData),
       });
       const responseData = await response.json();
-      console.log(responseData);
+      onFetch(responseData);
     } catch (error) {
       console.error('Error:', error);
     }
