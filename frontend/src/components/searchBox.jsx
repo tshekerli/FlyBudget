@@ -7,7 +7,13 @@ import DatePickerDrawer from "./flexibleDates";
 import ButtonComponent from "./button";
 import { useState } from "react";
 
-function SearchBox({onFetch}) {
+function SearchBox({onFetch, setIsLoading}) {
+
+  const handleClear = () => {
+    
+    onFetch(null);
+    
+  };
 
   const [responseData, setResponseData] = useState(null);
   const handleResponseData = (data) => {
@@ -23,10 +29,11 @@ function SearchBox({onFetch}) {
     date_to: "",
     return_from: "",
     return_to: "",
-    currency: "",
+    curr: "",
     sortBy: "price",
     adults: "1",
     children: "0",
+    limit:"10"
     
   });
 
@@ -46,7 +53,7 @@ function SearchBox({onFetch}) {
   };
 
   const sendRequest = async () => {
-    console.log('sendRequest function called');
+    setIsLoading(true);
     try {
       let requestData = { ...data };
       if (!requestData.date_to) {
@@ -60,6 +67,7 @@ function SearchBox({onFetch}) {
         delete requestData.return_to;
       }
       
+      console.log(requestData)
       const response = await fetch('http://localhost:5000/usersearch', {
         method: 'POST',
         headers: {
@@ -68,14 +76,13 @@ function SearchBox({onFetch}) {
         body: JSON.stringify(requestData),
       });
       const responseData = await response.json();
-      console.log('responseData from server', responseData);
-
-      onFetch(handleResponseData);
+      
+      onFetch(responseData); 
+      setIsLoading(false);
     } catch (error) {
       console.error('Error:', error);
     }
   };
-
   return (
     <div
       className="searchbox"
@@ -134,7 +141,7 @@ function SearchBox({onFetch}) {
       >
         <BasicSelect
           style={{ paddingLeft: "40px" }}
-          onCurrencyChange={handleFieldChange("currency")}
+          onCurrencyChange={handleFieldChange("curr")}
         />
 
         <SelectAutoWidth onChange={handleFieldChange("sortBy")} />
@@ -156,6 +163,7 @@ function SearchBox({onFetch}) {
             color: "black",
             borderColor: "black",
           }}
+          onClick={handleClear}
         />
         <ButtonComponent
           text={"Search"}

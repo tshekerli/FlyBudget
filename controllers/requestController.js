@@ -2,6 +2,7 @@ import {sendRequest} from "../services/requests.js";
 
 const parseResponse = (response) => {
     console.log(response)
+    const currency_name = response.currency
     return response.data.map(item => {
         const routes = item.route.map(route => ({
             cityFrom: route.cityFrom,
@@ -9,18 +10,14 @@ const parseResponse = (response) => {
             localDeparture: route.local_departure,
             localArrival: route.local_arrival,
         }));
-        const [currency, value] = Object.entries(item.conversion)[0];
+        
 
 
         return {
             
-            
+            price: item.price,
             routes: routes,
-            currency: currency,
-            value: value,
-            adultFare: item.fare.adults,
-            childFare: item.fare.children,
-            infantFare: item.fare.infants,
+            currency: currency_name,
             bagPrice: item.bags_price[0],
             link: item.deep_link
         };
