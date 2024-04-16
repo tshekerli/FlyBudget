@@ -8,6 +8,14 @@ import ButtonComponent from "./button";
 import { useState } from "react";
 
 function SearchBox({onFetch}) {
+
+  const [responseData, setResponseData] = useState(null);
+  const handleResponseData = (data) => {
+    setResponseData(data);
+  };
+
+  
+
   const [data, setData] = useState({
     fly_from: "",
     fly_to: "",
@@ -19,6 +27,7 @@ function SearchBox({onFetch}) {
     sortBy: "price",
     adults: "1",
     children: "0",
+    
   });
 
   const handleFieldChange = (field) => (value) => {
@@ -59,7 +68,9 @@ function SearchBox({onFetch}) {
         body: JSON.stringify(requestData),
       });
       const responseData = await response.json();
-      onFetch(responseData);
+      console.log('responseData from server', responseData);
+
+      onFetch(handleResponseData);
     } catch (error) {
       console.error('Error:', error);
     }

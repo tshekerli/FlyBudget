@@ -1,6 +1,7 @@
 import {sendRequest} from "../services/requests.js";
 
 const parseResponse = (response) => {
+    console.log(response)
     return response.data.map(item => {
         const routes = item.route.map(route => ({
             cityFrom: route.cityFrom,
@@ -12,6 +13,8 @@ const parseResponse = (response) => {
 
 
         return {
+            
+            
             routes: routes,
             currency: currency,
             value: value,
@@ -26,7 +29,7 @@ const parseResponse = (response) => {
 const search = async (query) => {
     try {
         const response = await sendRequest(query);
-        console.log('Response:', response);
+        
         const parsedResponse = parseResponse(response);
         return parsedResponse;
     } catch (error) {
@@ -37,6 +40,7 @@ const search = async (query) => {
 const receiveRequest = async (req, res) => {
     try {
         const response = await search(req.body);
+        
         res.status(200).json(response);
     } catch (error) {
         res.status(500).json({error: error.message});
