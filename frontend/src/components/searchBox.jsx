@@ -53,6 +53,10 @@ function SearchBox({onFetch, setIsLoading}) {
   };
 
   const sendRequest = async () => {
+    if (!data.fly_from || !data.fly_to || !data.date_from) {
+      alert('Please add the search items');
+      return;
+    }
     setIsLoading(true);
     try {
       let requestData = { ...data };

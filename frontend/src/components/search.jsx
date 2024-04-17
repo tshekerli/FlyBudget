@@ -21,7 +21,9 @@ function LocationSelect({ id, label, onChange }) {
 
   return (
     <Autocomplete
-      style={{ marginTop: "10px" }}
+      style={{ marginTop: "10px", fontFamily: 'Roboto, sans-serif',
+      fontWeight: 500,
+      fontStyle: 'normal' }}
       id={id}
       className="location-select"
       label={label}

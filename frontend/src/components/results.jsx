@@ -43,7 +43,7 @@ export function ResultContainer({ data, isLoading }) {
   if (data) {
     console.log(data)
     return (
-      <div>
+      <div className="result-container" >
         {data.map((item, index) => (
           <div key={index}>
             {item.routes.map((route, routeIndex) => {
