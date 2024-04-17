@@ -1,6 +1,7 @@
 import React from "react";
 import EmptySearchImage from "../img/emptysearch.jpg";
 import { Dimmer, Loader, Image, Segment } from "semantic-ui-react";
+import "./results.css"
 
 function LoaderComponent() {
   return (
@@ -45,11 +46,11 @@ export function ResultContainer({ data, isLoading }) {
     return (
       <div className="result-container" >
         {data.map((item, index) => (
-          <div key={index}>
+          <div key={index} className="result-div">
             {item.routes.map((route, routeIndex) => {
               const departureDate = new Date(route.localDeparture);
               return (
-                <div key={routeIndex}>
+                <div key={routeIndex} className="from-to-result">
                   <p>
                     {route.cityFrom} - {route.cityTo}
                   </p>
@@ -57,10 +58,13 @@ export function ResultContainer({ data, isLoading }) {
                 </div>
               );
             })}
-            <p>{item.currency}</p>
-            <p><p>{formatNumber(item.price)}</p></p>
+            <div className="secondary-data">
+            <p>{formatNumber(item.price)} {item.currency}</p>
             
-            <a href={item.link}>Link</a>
+            
+            <a href={item.link} className="search-link">Link</a>
+            </div>
+            
           </div>
         ))}
       </div>

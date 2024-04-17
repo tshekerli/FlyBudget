@@ -72,7 +72,7 @@ export default function SelectAutoWidth({onChange}) {
           <MenuItem value={'price'}>Price</MenuItem>
            <MenuItem value={'duration'}>Duration</MenuItem>
            <MenuItem value={'quality'}>Quality</MenuItem>
-           <MenuItem value={'days'}>Days</MenuItem>
+           <MenuItem value={'date'}>Date</MenuItem>
         </Select>
       </FormControl>
     </div>

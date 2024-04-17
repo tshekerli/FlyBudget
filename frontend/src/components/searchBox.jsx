@@ -29,11 +29,11 @@ function SearchBox({onFetch, setIsLoading}) {
     date_to: "",
     return_from: "",
     return_to: "",
-    curr: "",
-    sortBy: "price",
+    curr: "USD",
+    sort: "price",
     adults: "1",
     children: "0",
-    limit:"10"
+    limit:"25"
     
   });
 
@@ -148,7 +148,7 @@ function SearchBox({onFetch, setIsLoading}) {
           onCurrencyChange={handleFieldChange("curr")}
         />
 
-        <SelectAutoWidth onChange={handleFieldChange("sortBy")} />
+        <SelectAutoWidth onChange={handleFieldChange("sort")} />
       </div>
       <div
         style={{
