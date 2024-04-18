@@ -6,7 +6,7 @@ import Home from "./pages/home"
 import Search from "./pages/search"
 import About from "./pages/about"
 import Navbar from './components/navbar';
-
+import NotFoundPage from './pages/404';
 
 
 function App() {
@@ -27,6 +27,7 @@ function App() {
         <Route path='/' element = {<Home/>}/>
         <Route path='/search' element = {<Search/>}/>
         <Route path='/about' element = {<About/>}/>
+        <Route path="*" element = {<NotFoundPage/>} />
       </Routes>
 
 
