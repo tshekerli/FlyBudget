@@ -18,7 +18,7 @@ function App() {
     
     <div className="App">
       
-      
+      {/* <Navbar/> */}
       
       <SearchUi/>
 
