@@ -1,13 +1,15 @@
 import knex from 'knex';
+import 'dotenv/config';
+
 
 const db = knex({
     client: 'pg',
     connection: {
-        host: 'localhost',
+        host: process.env.DB_URL,
         port: '5432',
         user: 'postgres',
-        password: '12345',
-        database: 'FlyBudget'
+        password: process.env.DB_PASS,
+        database: 'postgres'
     }
 });
 
