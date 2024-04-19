@@ -1,5 +1,6 @@
 import React from "react";
 import EmptySearchImage from "../img/emptysearch.jpg.png";
+import NotFoundImage from "../img/notfound.png";
 import { Dimmer, Loader, Image, Segment } from "semantic-ui-react";
 import "./results.css"
 
@@ -34,6 +35,9 @@ export function ResultContainer({ data, isLoading }) {
   if (isLoading) {
     return <LoaderComponent />;
   }
+  
+
+  
   if (!data) {
     return (
       <div style={{display:"flex", justifyContent:"center", alignItems:" center", marginLeft:"auto", marginRight:"auto"}}>
@@ -42,6 +46,13 @@ export function ResultContainer({ data, isLoading }) {
     );
   }
   if (data) {
+    if (data.length == 0){
+      return (
+        <div style={{display:"flex", justifyContent:"center", alignItems:" center", marginLeft:"auto", marginRight:"auto"}}>
+          <img src={NotFoundImage} alt="Please search" height={"500px"} style={{borderRadius:"10%"}} />
+        </div>
+      );
+    }
     console.log(data)
     return (
       <div className="result-container" style={{display:"flex", flexWrap:"wrap", justifyContent:"center", alignItems:" baseline", alignContent:"space-between", marginLeft:"auto", marginRight:"auto", gap:"2rem"}}>
