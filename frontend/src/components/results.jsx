@@ -1,11 +1,11 @@
 import React from "react";
-import EmptySearchImage from "../img/emptysearch.jpg";
+import EmptySearchImage from "../img/emptysearch.jpg.png";
 import { Dimmer, Loader, Image, Segment } from "semantic-ui-react";
 import "./results.css"
 
 function LoaderComponent() {
   return (
-    <div>
+    <div style={{display:"flex", justifyContent:"center", alignItems:" center", marginLeft:"auto", marginRight:"auto"}}>
       <Segment>
         <Dimmer active inverted>
           <Loader size="massive">Loading</Loader>
@@ -36,17 +36,17 @@ export function ResultContainer({ data, isLoading }) {
   }
   if (!data) {
     return (
-      <div>
-        <img src={EmptySearchImage} alt="Please search" height={"500px"} />
+      <div style={{display:"flex", justifyContent:"center", alignItems:" center", marginLeft:"auto", marginRight:"auto"}}>
+        <img src={EmptySearchImage} alt="Please search" height={"500px"} style={{borderRadius:"10%"}} />
       </div>
     );
   }
   if (data) {
     console.log(data)
     return (
-      <div className="result-container" >
+      <div className="result-container" style={{display:"flex", flexWrap:"wrap", justifyContent:"center", alignItems:" baseline", alignContent:"space-between", marginLeft:"auto", marginRight:"auto", gap:"2rem"}}>
         {data.map((item, index) => (
-          <div key={index} className="result-div">
+          <div key={index} className="result-div" style={{display:"flex", flexDirection:"column", width:"200px"}}>
             {item.routes.map((route, routeIndex) => {
               const departureDate = new Date(route.localDeparture);
               return (
@@ -62,7 +62,7 @@ export function ResultContainer({ data, isLoading }) {
             <p>{formatNumber(item.price)} {item.currency}</p>
             
             
-            <a href={item.link} className="search-link">Link</a>
+            <a href={item.link} className="search-link" target="_blank">Link</a>
             </div>
             
           </div>

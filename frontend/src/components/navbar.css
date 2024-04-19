@@ -3,19 +3,19 @@ nav {
     color: #747474;
 }
 
-img {
+nav img {
     width: 50px;
     border-radius: 50%;
 }
 
-ul {
+nav ul {
     display: flex;
     align-items: center;
     gap: 2rem;
     justify-content: space-around;
 }
 
-li {
+nav li {
     font-weight: bold;
     list-style: none;
     font-size: 2rem;
@@ -23,15 +23,15 @@ li {
 
 }
 
-li:first-child {
+nav li:first-child {
     margin-right: auto;
 }
 
-li:last-child {
+nav li:last-child {
     margin-right: 5rem;
 }
 
-li:not(:first-child){
+nav li:not(:first-child){
     border: 1px solid rgb(187, 175, 175);
     padding: 20px;
     border-radius: 500px

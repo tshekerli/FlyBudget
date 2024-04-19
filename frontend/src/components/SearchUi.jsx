@@ -12,7 +12,7 @@ export function SearchUi() {
   };
 
   return (
-    <div className="search-ui">
+    <div className="search-ui" style={{display:'flex'}}>
       <SearchBox onFetch={handleResponseData} setIsLoading={setIsLoading} />
       <ResultContainer data={responseData} isLoading={isLoading} />
 

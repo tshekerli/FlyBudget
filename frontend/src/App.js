@@ -9,6 +9,7 @@ import Navbar from './components/navbar';
 import NotFoundPage from './pages/404';
 
 
+
 function App() {
   
   
@@ -19,9 +20,9 @@ function App() {
       
       
       
-      {/* <SearchUi/> */}
+      <SearchUi/>
 
-      <Navbar/>
+      
 
       <Routes>
         <Route path='/' element = {<Home/>}/>
@@ -29,6 +30,8 @@ function App() {
         <Route path='/about' element = {<About/>}/>
         <Route path="*" element = {<NotFoundPage/>} />
       </Routes>
+
+      
 
 
     </div>
