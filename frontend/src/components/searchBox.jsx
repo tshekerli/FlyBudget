@@ -72,7 +72,7 @@ function SearchBox({onFetch, setIsLoading}) {
         delete requestData.return_to;
       }
       
-      console.log(requestData)
+      
       const response = await fetch('http://localhost:5000/usersearch', {
         method: 'POST',
         headers: {
@@ -91,7 +91,7 @@ function SearchBox({onFetch, setIsLoading}) {
   return (
     <div
       className="searchbox"
-      style={{ width: "400px", backgroundColor: "#F0F0F0", padding: "15px", overflow:"hidden" }}
+      style={{ width: "400px", backgroundColor: "#F0F0F0", padding: "15px", overflow:"hidden", margin:"15px" }}
     >
       <Head />
       <h2 style={{ paddingLeft: "15px" }}>Search</h2>

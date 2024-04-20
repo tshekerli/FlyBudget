@@ -53,11 +53,11 @@ export function ResultContainer({ data, isLoading }) {
         </div>
       );
     }
-    console.log(data)
+    
     return (
-      <div className="result-container" style={{display:"flex", flexWrap:"wrap", justifyContent:"center", alignItems:" baseline", alignContent:"space-between", marginLeft:"auto", marginRight:"auto", gap:"2rem"}}>
+      <div className="result-container" style={{display:"flex", flexWrap:"wrap", justifyContent:"center", alignItems:"baseline", alignContent:"space-between", marginLeft:"auto", marginRight:"auto", gap:"2rem"}}>
         {data.map((item, index) => (
-          <div key={index} className="result-div" style={{display:"flex", flexDirection:"column", width:"200px"}}>
+          <div key={index} className="result-div" style={{display:"flex", flexDirection:"column", width:"250px", boxShadow: "0px 4px 8px 0px rgba(0,0,0,0.2)"}}>
             {item.routes.map((route, routeIndex) => {
               const departureDate = new Date(route.localDeparture);
               return (

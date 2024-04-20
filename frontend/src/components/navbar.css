@@ -1,11 +1,18 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
 nav {
     padding-top: 0.5rem;
+    padding-bottom: 5px;
     color: #747474;
+    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
 }
 
 nav img {
     width: 50px;
     border-radius: 50%;
+    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
 }
 
 nav ul {
@@ -13,12 +20,14 @@ nav ul {
     align-items: center;
     gap: 2rem;
     justify-content: space-around;
+    
 }
 
 nav li {
     font-weight: bold;
     list-style: none;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    
     
 
 }
@@ -33,7 +42,8 @@ nav li:last-child {
 
 nav li:not(:first-child){
     border: 1px solid rgb(187, 175, 175);
-    padding: 20px;
-    border-radius: 500px
+    padding: 10px;
+    border-radius: 500px;
+    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
 }
 
