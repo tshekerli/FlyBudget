@@ -8,9 +8,9 @@ export default function Footer() {
 
       
 
-      <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
+      <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)', boxShadow:"0px 4px 8px 0px rgba(0,0,0,0.2)",   }}>
         © 2024 Copyright:
-        <a className='text-reset fw-bold' href='https://www.linkedin.com/in/2rall/'>
+        <a className='text-reset fw-bold' href='https://www.linkedin.com/in/2rall/' target="_blank">
           Tural Shakarli
         </a>
       </div>
