@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Autocomplete, { autocompleteClasses } from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 
+
 function LocationSelect({ id, label, onChange }) {
   const [citiesArray, setCitiesArray] = useState([]);
   const [selectedCity, setSelectedCity] = useState(null);

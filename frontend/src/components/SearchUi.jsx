@@ -12,9 +12,9 @@ export function SearchUi() {
   };
 
   return (
-    <div className="search-ui" style={{display:'flex'}}>
-      <SearchBox onFetch={handleResponseData} setIsLoading={setIsLoading} />
-      <ResultContainer data={responseData} isLoading={isLoading} />
+    <div className="search-ui" style={{display:'grid', gridTemplateColumns:'1fr 1fr 1fr'}}>
+      <div style={{width:"400px"}}><SearchBox onFetch={handleResponseData} setIsLoading={setIsLoading} /></div>
+      <div style={{gridColumn: '2 / span 2', display:"flex", justifyContent:'center', alignItems:"center"}}><ResultContainer data={responseData} isLoading={isLoading} /></div>
 
     </div>
   );

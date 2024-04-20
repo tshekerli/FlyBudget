@@ -1,7 +1,11 @@
- function Search () {
+import { SearchUi } from "../components/SearchUi"
+import Navbar from "../components/navbar"
+
+function Search () {
     return (
-        <div>
-            Search
+        <div style={{display:'flex', justifyContent:'center', flexDirection:"column", gap:"10px"}}>
+            <Navbar/>
+            <SearchUi/>
         </div>
     )
 }

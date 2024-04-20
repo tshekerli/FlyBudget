@@ -3,6 +3,7 @@ import PaxSelect from "./paxSelect";
 import BasicSelect from "./currency";
 import { Head } from "./searchHead";
 import SelectAutoWidth from "./sortby";
+import LimitBy from "./limit";
 import DatePickerDrawer from "./flexibleDates";
 import ButtonComponent from "./button";
 import { useState } from "react";
@@ -90,7 +91,7 @@ function SearchBox({onFetch, setIsLoading}) {
   return (
     <div
       className="searchbox"
-      style={{ width: "400px", backgroundColor: "#F0F0F0", padding: "15px" }}
+      style={{ width: "400px", backgroundColor: "#F0F0F0", padding: "15px", overflow:"hidden" }}
     >
       <Head />
       <h2 style={{ paddingLeft: "15px" }}>Search</h2>
@@ -140,7 +141,10 @@ function SearchBox({onFetch, setIsLoading}) {
           flexDirection: "row",
           marginTop: "10px",
           justifyContent: "space-between",
-          padding: "10px 40px 10px 40px",
+          alignItems:"center",
+          gap:"1rem",
+          overflow:"hidden"
+          // padding: "10px 40px 10px 40px",
         }}
       >
         <BasicSelect
@@ -149,6 +153,7 @@ function SearchBox({onFetch, setIsLoading}) {
         />
 
         <SelectAutoWidth onChange={handleFieldChange("sort")} />
+        <LimitBy onChange={handleFieldChange("limit")} />
       </div>
       <div
         style={{
