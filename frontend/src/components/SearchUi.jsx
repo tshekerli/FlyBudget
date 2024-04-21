@@ -12,10 +12,9 @@ export function SearchUi() {
   };
 
   return (
-    <div className="search-ui" style={{display:'flex', flexDirection:'row',  minHeight:"100vh"}}>
-      <div style={{width:"400px", marginRight:"auto"}}><SearchBox onFetch={handleResponseData} setIsLoading={setIsLoading} /></div>
-      <div style={{ display:"flex", justifyContent:'center', alignItems:"center", marginLeft:'auto', marginRight:'auto'}}><ResultContainer data={responseData} isLoading={isLoading} /></div>
-
-    </div>
+    <div className="search-ui">
+  <div className="searchbox-outer" style={{width:"400px", marginRight:"auto"}}><SearchBox onFetch={handleResponseData} setIsLoading={setIsLoading} /></div>
+  <div className="result-head" style={{ display:"flex", justifyContent:'center', alignItems:"center", marginLeft:'auto', marginRight:'auto',  }}><ResultContainer data={responseData} isLoading={isLoading} /></div>
+</div>
   );
 }

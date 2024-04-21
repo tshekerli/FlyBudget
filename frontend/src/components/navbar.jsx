@@ -13,9 +13,7 @@ function Navbar() {
           <Link  style={{textDecoration:'none', color:"#747474"}} to="/">Home</Link>
         </li>
         
-        <li>
-          <Link style={{textDecoration:'none', color:"#747474"}} to="/search">Search</Link>
-        </li>
+        
 
         <li>
           <Link style={{textDecoration:'none', color:"#747474"}} to="/about">About</Link>
