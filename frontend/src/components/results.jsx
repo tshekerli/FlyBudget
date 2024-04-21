@@ -222,8 +222,8 @@ export function ResultContainer({ data, isLoading }) {
       left: "50%",
       transform: "translate(-50%, -50%)",
       overflow: 'auto',
-      maxHeight: '400px',
-      maxWidth: '400px',
+      maxHeight: '600px',
+      maxWidth: '600px',
        
       margin:'0'
     }}
@@ -233,8 +233,8 @@ export function ResultContainer({ data, isLoading }) {
       backgroundSize: 'cover', 
       backgroundRepeat: 'no-repeat', 
       backgroundPosition: 'center',
-      minHeight: '400px',
-      minWidth: '400px',
+      minHeight: '600px',
+      minWidth: '600px',
       color: 'white',
       display: 'flex',
       flexDirection: 'column',
