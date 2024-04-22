@@ -7,7 +7,8 @@ function Navbar() {
     <nav>
       <ul>
         <li>
-          <img src={Logo} alt="" />
+          
+          <Link  style={{textDecoration:'none', color:"#747474"}} to="/"><img src={Logo} alt="" /></Link>
         </li>
         <li>
           <Link  style={{textDecoration:'none', color:"#747474"}} to="/">Home</Link>

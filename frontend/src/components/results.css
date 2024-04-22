@@ -45,6 +45,13 @@
 
 
 
+.footername-hover {
+    transition: font-size 0.3s ease;
+  }
+  
+  .footername-hover:hover {
+    font-size: 1.5em; 
+  }
 
 
 

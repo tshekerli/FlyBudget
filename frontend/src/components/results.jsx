@@ -107,6 +107,8 @@ export function ResultContainer({ data, isLoading }) {
           position: "relative",
           alignSelf: "flex-start",
           marginTop: "3rem",
+          boxShadow: "0px 4px 8px 0px rgba(0,0,0,0.2)",
+          borderRadius:"10%"
         }}
       >
         <img
