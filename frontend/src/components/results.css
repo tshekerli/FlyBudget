@@ -44,13 +44,23 @@
 }
 
 
+#modal-link, #modal-from, #modal-time, #modal-price {
+    font-size: 1.5rem;
+    transition: color 0.3s ease, font-size 0.3s ease;
+    padding: 10px;
+}
+
+#modal-link:hover, #modal-from:hover, #modal-time:hover, #modal-price:hover {
+    font-size: 2rem;
+}
+
 
 .footername-hover {
     transition: font-size 0.3s ease;
   }
   
   .footername-hover:hover {
-    font-size: 1.5em; 
+    font-size: 1.5em; /* adjust as needed */
   }
 
 
@@ -74,7 +84,16 @@
     align-items: stretch;
   }
 
-  
+.parentBox{
+    height: 600px;
+    width: 600px;
+    margin-bottom: auto;
+    margin-top: 1rem;
+}
+
+.first-image, .second-image, .third-image, .fourth-image{
+    width:300px
+}
   
   @media screen and (max-width: 900px) {
     .search-ui {
@@ -93,5 +112,18 @@
         margin-right: auto;
         margin-left: auto;
     }
+    .parentBox{
+        height: 600px;
+        width: 600px;
+        margin-left: 12rem;
+        
+        margin-top: 5rem;
+        
+    }
+    
+    .first-image, .second-image, .third-image, .fourth-image{
+        width:300px
+    }
+      
   }
 
