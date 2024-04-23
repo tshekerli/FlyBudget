@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import EmptySearchImage from "../img/emptysearch.jpg.png";
 import NotFoundImage from "../img/notfound.png";
 import First from "../img/results/1.jpg";
 import Second from "../img/results/2.jpg";
@@ -15,9 +14,9 @@ import Eleventh from "../img/results/11.jpg";
 import Twelfth from "../img/results/12.jpg";
 import Thirteenth from "../img/results/13.jpg";
 import { Dimmer, Loader, Image, Segment, Modal } from "semantic-ui-react";
-import Slide from '@mui/material/Slide';
+import Emptysearchslide from "./Slidingemptyimage"
 import Grow from '@mui/material/Grow';
-import SlidingDiv from "./slidingimage"
+import SlidingDiv from "./Slidingsearchimage"
 
 import "./results.css";
 
@@ -118,22 +117,7 @@ export function ResultContainer({ data, isLoading }) {
   if (data) {
     if (data.length == 0) {
       return (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: " center",
-            marginLeft: "auto",
-            marginRight: "auto",
-          }}
-        >
-          <img
-            src={NotFoundImage}
-            alt="Please search"
-            height={"500px"}
-            style={{ borderRadius: "10%" }}
-          />
-        </div>
+        <Emptysearchslide/>
       );
     }
 
