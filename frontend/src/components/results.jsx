@@ -17,6 +17,9 @@ import { Dimmer, Loader, Image, Segment, Modal } from "semantic-ui-react";
 import Emptysearchslide from "./Slidingemptyimage"
 import Grow from '@mui/material/Grow';
 import SlidingDiv from "./Slidingsearchimage"
+import LoaderComponent from "./loader";
+
+
 
 import "./results.css";
 
@@ -51,29 +54,7 @@ function getNextImage() {
   return nextImage;
 }
 
-function LoaderComponent() {
-  return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: " center",
-        marginLeft: "auto",
-        marginRight: "auto",
-      }}
-    >
-      <Segment>
-        <Dimmer active inverted>
-          <Loader size="massive">Loading</Loader>
-        </Dimmer>
 
-        <Image src="https://react.semantic-ui.com/images/wireframe/short-paragraph.png" />
-        <Image src="https://react.semantic-ui.com/images/wireframe/short-paragraph.png" />
-        <Image src="https://react.semantic-ui.com/images/wireframe/short-paragraph.png" />
-      </Segment>
-    </div>
-  );
-}
 
 function formatNumber(num) {
   const decimalPart = num - Math.floor(num);

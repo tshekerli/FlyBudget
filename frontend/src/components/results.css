@@ -1,4 +1,21 @@
+
+
+  .aboutcontainer{
+    display: flex;
+    flex-direction: column;
+  }
+
+
 .result-div {
+    display: flex;
+    flex-direction: row;
+    margin: 15px;
+    border: 2px solid #F0F0F0;
+    border-radius: 10px;
+    max-width: 300px;
+    text-align: center;
+}
+.loaderskeleton {
     display: flex;
     flex-direction: row;
     margin: 15px;
@@ -45,7 +62,7 @@
 
 
 #modal-link, #modal-from, #modal-time, #modal-price {
-    font-size: 1.5rem;
+    font-size: 1rem;
     transition: color 0.3s ease, font-size 0.3s ease;
     padding: 10px;
 }

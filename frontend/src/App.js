@@ -6,6 +6,7 @@ import Home from "./pages/home";
 import About from "./pages/about";
 
 import NotFoundPage from "./pages/404";
+import Loader from "./components/loader"
 
 function App() {
   return (
@@ -20,6 +21,10 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+
+      {/* <Loader/> */}
+
+
     </div>
   );
 }
