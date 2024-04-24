@@ -1,17 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../components/navbar';
+import ScrollAnimation from '../components/scrollanimation';
 
+function About () {
+    useEffect(() => {
+        
+        window.scrollTo(0, 0);
+        
+        
+    }, []);
 
- 
- function About () {
-    var j = document.getElementById("arr");
     return (
-        <div>
-            <Navbar/>
-
+        <div style={{position:'relative', }}>
+            <ScrollAnimation>
+                <Navbar/>
+                
+            </ScrollAnimation>
+           
             
         </div>
     )
 }
 
-export default About
+export default About;

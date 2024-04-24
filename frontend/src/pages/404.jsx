@@ -5,6 +5,7 @@ import SlidingImage from "../components/Sliding404image";
 import Footer from "../components/footer";
 import { WidthFull } from "@mui/icons-material";
 import Navbar from "../components/navbar";
+import ScrollAnimation from "../components/scrollanimation";
 
 function NotFoundPage() {
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ function NotFoundPage() {
   };
 
   return (
+    <ScrollAnimation>
     <div className="page404"
       style={{
         display: "flex",
@@ -47,6 +49,7 @@ function NotFoundPage() {
         <Footer />
       </div>
     </div>
+    </ScrollAnimation>
   );
 }
 
