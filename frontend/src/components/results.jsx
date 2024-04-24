@@ -87,7 +87,10 @@ export function ResultContainer({ data, isLoading }) {
   };
 
   if (isLoading) {
-    return <LoaderComponent />;
+    return (
+      
+    <LoaderComponent />
+  )
   }
 
   if (!data) {

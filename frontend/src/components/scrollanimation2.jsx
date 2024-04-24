@@ -29,26 +29,7 @@ function ScrollAnimation({children}) {
         >
             {children}
         </motion.div>
-        <motion.div
-        variants={{
-            hidden:{left:0},
-            visible:{left:"100%"}
-        }}
-        initial="hidden"
-        animate= {slidecontrols}
-        transition={{duration:0.5, ease: 'easeIn'}}
-        style={{position:"absolute",
-        top:4,
-        bottom:4,
-        left:0,
-        right:0,
-        background:"#F0F0F0",
-        zIndex:20,
         
-    }}
-        >
-
-        </motion.div>
         </div>
     )
 }
