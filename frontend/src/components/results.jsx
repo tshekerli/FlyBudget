@@ -18,6 +18,7 @@ import Emptysearchslide from "./Slidingemptyimage"
 import Grow from '@mui/material/Grow';
 import SlidingDiv from "./Slidingsearchimage"
 import LoaderComponent from "./loader";
+import ScrollAnimation from "./scrollanimation";
 
 
 
@@ -120,6 +121,7 @@ export function ResultContainer({ data, isLoading }) {
       >
         {data.map((item, index) => (
           <Grow in={true} style={{ transformOrigin: '0 0 0' }} timeout={index *600}>
+            
           <div
             key={index}
             className="result-div"

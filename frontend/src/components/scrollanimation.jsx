@@ -1,6 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import {motion, useAnimation, useInView} from "framer-motion"
 
+
 function ScrollAnimation({children}) {
     const ref = useRef(null);
     const isInView = useInView(ref, {once:true});
