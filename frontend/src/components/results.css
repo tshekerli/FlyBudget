@@ -1,9 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Orienta&display=swap');
+
+.orienta-regular {
+    font-family: "Orienta", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
 
 
-  .aboutcontainer{
+.acme-regular {
+    font-family: "Acme", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.acme-regular {
+    font-family: "Acme", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.aboutcontainer {
     display: flex;
     flex-direction: column;
-  }
+}
 
 
 .result-div {
@@ -15,6 +37,7 @@
     max-width: 300px;
     text-align: center;
 }
+
 .loaderskeleton {
     display: flex;
     flex-direction: row;
@@ -60,25 +83,45 @@
     text-align: center;
 }
 
+.result-head {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-#modal-link, #modal-from, #modal-time, #modal-price {
+}
+
+.result-head div {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+#modal-link,
+#modal-from,
+#modal-time,
+#modal-price {
     font-size: 1rem;
     transition: color 0.3s ease, font-size 0.3s ease;
     padding: 10px;
 }
 
-#modal-link:hover, #modal-from:hover, #modal-time:hover, #modal-price:hover {
+#modal-link:hover,
+#modal-from:hover,
+#modal-time:hover,
+#modal-price:hover {
     font-size: 2rem;
 }
 
 
 .footername-hover {
     transition: font-size 0.3s ease;
-  }
-  
-  .footername-hover:hover {
-    font-size: 1.5em; /* adjust as needed */
-  }
+}
+
+.footername-hover:hover {
+    font-size: 1.5em;
+    /* adjust as needed */
+}
 
 
 
@@ -98,82 +141,102 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    
-  }
 
-.parentBox{
+}
+
+.parentBox {
     height: 600px;
     width: 600px;
     margin-bottom: auto;
     margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.parentBox404{
+.parentBox404 {
     height: 600px;
     width: 600px;
     margin-top: 2rem;
     margin-left: 14rem;
-    
-    
-}
-.first-image404, .second-image404, .third-image404, .fourth-image404{
-    width:300px
-}
-  
 
 
-.first-image, .second-image, .third-image, .fourth-image{
-    width:300px
 }
-  
-  @media screen and (max-width: 750px) {
-    
+
+.first-image404,
+.second-image404,
+.third-image404,
+.fourth-image404 {
+    width: 300px
+}
+
+
+
+.first-image,
+.second-image,
+.third-image,
+.fourth-image {
+    width: 300px
+}
+
+@media screen and (max-width: 750px) {
+
     .search-ui {
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
+
     .result-head img {
         width: 300px;
         height: 300px;
     }
-    .searchbox-outer{
+
+    .searchbox-outer {
         display: flex;
         align-items: center;
         justify-content: center;
         margin-right: auto;
         margin-left: auto;
     }
-    .parentBox{
+
+    .parentBox {
         height: 600px;
         width: 600px;
         margin-left: 12rem;
-        
+
         margin-top: 5rem;
-        
+
     }
-    
-    .page404{
+
+    .page404 {
         box-sizing: border-box;
 
     }
-    .first-image, .second-image, .third-image, .fourth-image{
-        width:300px
+
+    .first-image,
+    .second-image,
+    .third-image,
+    .fourth-image {
+        width: 300px
     }
-      
-    .parentBox404{
+
+    .parentBox404 {
         height: 400px;
         width: 400px;
-       margin-right: 8rem;
-        
-        
+        margin-right: 8rem;
+
+
     }
-    .img404{
+
+    .img404 {
         height: 65%;
     }
-    .first-image404, .second-image404, .third-image404, .fourth-image404{
-        width:200px
-    }
-      
-  }
 
+    .first-image404,
+    .second-image404,
+    .third-image404,
+    .fourth-image404 {
+        width: 200px
+    }
+
+}

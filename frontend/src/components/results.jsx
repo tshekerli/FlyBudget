@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NotFoundImage from "../img/notfound.png";
 import First from "../img/results/1.jpg";
 import Second from "../img/results/2.jpg";
@@ -14,13 +14,11 @@ import Eleventh from "../img/results/11.jpg";
 import Twelfth from "../img/results/12.jpg";
 import Thirteenth from "../img/results/13.jpg";
 import { Dimmer, Loader, Image, Segment, Modal } from "semantic-ui-react";
-import Emptysearchslide from "./Slidingemptyimage"
-import Grow from '@mui/material/Grow';
-import SlidingDiv from "./Slidingsearchimage"
+import Emptysearchslide from "./Slidingemptyimage";
+import Grow from "@mui/material/Grow";
+import SlidingDiv from "./Slidingsearchimage";
 import LoaderComponent from "./loader";
 import ScrollAnimation from "./scrollanimation";
-
-
 
 import "./results.css";
 
@@ -55,8 +53,6 @@ function getNextImage() {
   return nextImage;
 }
 
-
-
 function formatNumber(num) {
   const decimalPart = num - Math.floor(num);
   if (decimalPart === 0) {
@@ -71,14 +67,20 @@ function formatNumber(num) {
 export function ResultContainer({ data, isLoading }) {
   const [open, setOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
-  
+  const [selectedImage, setSelectedImage] = useState(null);
 
-  
+  const [images, setImages] = useState([]);
 
-   
+  useEffect(() => {
+    if (data) {
+      const newImages = data.map(() => getNextImage());
+      setImages(newImages);
+    }
+  }, [data]);
 
-  const handleOpen = (item) => {
+  const handleOpen = (item, image) => {
     setSelectedItem(item);
+    setSelectedImage(image);
     setOpen(true);
   };
 
@@ -87,158 +89,202 @@ export function ResultContainer({ data, isLoading }) {
   };
 
   if (isLoading) {
-    return (
-      
-    <LoaderComponent />
-  )
+    return <LoaderComponent />;
   }
 
   if (!data) {
-    return (
-      
-      <SlidingDiv/>
-    );
+    return <SlidingDiv />;
   }
 
   if (data) {
     if (data.length == 0) {
-      return (
-        <Emptysearchslide/>
-      );
+      return <Emptysearchslide />;
     }
 
     return (
       <div
-        className="result-container"
         style={{
           display: "flex",
-          flexWrap: "wrap",
+          flexDirection: "column",
           justifyContent: "center",
-          alignItems: "baseline",
-          alignContent: "space-between",
-          marginLeft: "auto",
-          marginRight: "auto",
-          gap: "2rem",
-          height:'100%',
-          width:'100%'
+          alignItems: "center",
         }}
       >
-        {data.map((item, index) => (
-          <Grow in={true} style={{ transformOrigin: '0 0 0' }} timeout={index *600}>
+        <div
+          style={{
+            textAlign: "center",
+            margin: "1rem",
             
-          <div
-            key={index}
-            className="result-div"
-            onClick={() => handleOpen(item)}
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              width: "250px",
-              boxShadow: "0px 4px 8px 0px rgba(0,0,0,0.2)",
-              backgroundImage: `url(${getNextImage()})`,
-              backgroundSize: "cover",
-            }}
-          >
-            {item.routes.map((route, routeIndex) => {
-              const departureDate = new Date(route.localDeparture);
-              return (
+            height: "4rem",
+            borderRadius: "10px",
+            width: "100%",
+          }}
+        >
+          <h1 style={{fontFamily: "'Orienta', sans-serif", display:'flex', alignItems:'center', justifyContent:'center'}}>We have found {data.length} results based on your search</h1>
+        </div>
+        <div
+          className="result-container"
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            alignItems: "baseline",
+            alignContent: "space-between",
+            marginLeft: "auto",
+            marginRight: "auto",
+            gap: "2rem",
+            height: "100%",
+            width: "100%",
+          }}
+        >
+          {data.map((item, index) => (
+            <Grow
+              in={true}
+              style={{ transformOrigin: "0 0 0" }}
+              timeout={index * 600}
+            >
+              <div
+                key={index}
+                className="result-div"
+                onClick={() => handleOpen(item, images[index])}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  width: "250px",
+                  boxShadow: "0px 4px 8px 0px rgba(0,0,0,0.2)",
+                  backgroundImage: `url(${images[index]})`,
+                  backgroundSize: "cover",
+                }}
+              >
+                {item.routes.map((route, routeIndex) => {
+                  const departureDate = new Date(route.localDeparture);
+                  return (
+                    <div
+                      key={routeIndex}
+                      className="from-to-result"
+                      style={{
+                        backgroundColor: "rgba(240, 240, 240, 0.5)",
+                        color: "black",
+                        borderRadius: "10px",
+                      }}
+                    >
+                      <p>
+                        {route.cityFrom} - {route.cityTo}
+                      </p>
+                      <p>{departureDate.toLocaleString()}</p>
+                    </div>
+                  );
+                })}
                 <div
-                  key={routeIndex}
-                  className="from-to-result"
+                  className="secondary-data"
                   style={{
-                    backgroundColor: "rgba(240, 240, 240, 0.5)",
-                    color: "black",
+                    backgroundColor: "rgba(240, 240, 240, 0.2)",
+                    color: "white",
                     borderRadius: "10px",
                   }}
                 >
-                  <p>
-                    {route.cityFrom} - {route.cityTo}
+                  <p className="price-info">
+                    {formatNumber(item.price)} {item.currency}
                   </p>
-                  <p>{departureDate.toLocaleString()}</p>
+                  <a
+                    href={item.link}
+                    className="search-link"
+                    target="_blank"
+                    style={{ color: "white" }}
+                  >
+                    Link
+                  </a>
                 </div>
-              );
-            })}
-            <div
-              className="secondary-data"
+              </div>
+            </Grow>
+          ))}
+          {selectedItem && (
+            <Modal
+              open={open}
+              onClose={handleClose}
               style={{
-                backgroundColor: "rgba(240, 240, 240, 0.2)",
-                color: "white",
-                borderRadius: "10px",
+                position: "fixed",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                overflow: "auto",
+                maxHeight: "600px",
+                maxWidth: "600px",
+                margin: "0",
               }}
             >
-              <p className="price-info">
-                {formatNumber(item.price)} {item.currency}
-              </p>
-              <a
-                href={item.link}
-                className="search-link"
-                target="_blank"
-                style={{ color: "white" }}
+              <Modal.Content
+                style={{
+                  backgroundImage: `url(${selectedImage})`,
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center",
+                  minHeight: "600px",
+                  minWidth: "600px",
+                  color: "white",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  textAlign: "center",
+                  gap: "10px",
+                }}
               >
-                Link
-              </a>
-            </div>
-          </div>
-          </Grow>
-        ))}
-        {selectedItem && (
-  <Modal
-    open={open}
-    onClose={handleClose}
-    style={{
-      position: "fixed",
-      top: "50%",
-      left: "50%",
-      transform: "translate(-50%, -50%)",
-      overflow: 'auto',
-      maxHeight: '600px',
-      maxWidth: '600px',
-       
-      margin:'0'
-    }}
-  >
-    <Modal.Content style={{
-      backgroundImage: `url(${getNextImage()})`,
-      backgroundSize: 'cover', 
-      backgroundRepeat: 'no-repeat', 
-      backgroundPosition: 'center',
-      minHeight: '600px',
-      minWidth: '600px',
-      color: 'white',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      textAlign: 'center',
-      gap:"10px"
-    }}>
-      {selectedItem.routes.map((route, routeIndex) => {
-        const departureDate = new Date(route.localDeparture);
-        return (
-          <div key={routeIndex}>
-            <p id="modal-from" style={{backgroundColor:"rgba(0, 0, 0, 0.5)", color: "white", borderRadius:"500px",  }}>
-              {route.cityFrom} - {route.cityTo}
-            </p>
-            <p id="modal-time" style={{backgroundColor:"rgba(0, 0, 0, 0.5)", color: "white", borderRadius:"500px",  }}>{departureDate.toLocaleString()}</p>
-          </div>
-        );
-      })}
-      <p id="modal-price"  style={{backgroundColor:"rgba(0, 0, 0, 0.5)", color: "white", borderRadius:"500px",  }} className="price-info secondary-data"> 
-        {formatNumber(selectedItem.price)} {selectedItem.currency}
-      </p>
-      <a
-        href={selectedItem.link}
-        className="search-link secondary-data"
-        id="modal-link" 
-        target="_blank"
-        
-        style={{backgroundColor:"rgba(0, 0, 0, 0.5)", color: "white", borderRadius:"500px",  }}
-      >
-        Link
-      </a>
-    </Modal.Content>
-  </Modal>
-)}
+                {selectedItem.routes.map((route, routeIndex) => {
+                  const departureDate = new Date(route.localDeparture);
+                  return (
+                    <div key={routeIndex}>
+                      <p
+                        id="modal-from"
+                        style={{
+                          backgroundColor: "rgba(0, 0, 0, 0.5)",
+                          color: "white",
+                          borderRadius: "500px",
+                        }}
+                      >
+                        {route.cityFrom} - {route.cityTo}
+                      </p>
+                      <p
+                        id="modal-time"
+                        style={{
+                          backgroundColor: "rgba(0, 0, 0, 0.5)",
+                          color: "white",
+                          borderRadius: "500px",
+                        }}
+                      >
+                        {departureDate.toLocaleString()}
+                      </p>
+                    </div>
+                  );
+                })}
+                <p
+                  id="modal-price"
+                  style={{
+                    backgroundColor: "rgba(0, 0, 0, 0.5)",
+                    color: "white",
+                    borderRadius: "500px",
+                  }}
+                  className="price-info secondary-data"
+                >
+                  {formatNumber(selectedItem.price)} {selectedItem.currency}
+                </p>
+                <a
+                  href={selectedItem.link}
+                  className="search-link secondary-data"
+                  id="modal-link"
+                  target="_blank"
+                  style={{
+                    backgroundColor: "rgba(0, 0, 0, 0.5)",
+                    color: "white",
+                    borderRadius: "500px",
+                  }}
+                >
+                  Link
+                </a>
+              </Modal.Content>
+            </Modal>
+          )}
+        </div>
       </div>
     );
   }
