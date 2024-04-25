@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import { Routes, Route } from "react-router-dom";
+import { SearchUi } from "./components/SearchUicopy";
 import Home from "./pages/home";
 
 import About from "./pages/about";
@@ -13,14 +14,14 @@ function App() {
     <div className="App">
       {/* <Navbar/> */}
 
-      {/* <SearchUi/> */}
+      <SearchUi/>
 
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<Home />} />
 
         <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      </Routes> */}
 
       {/* <Loader/> */}
 

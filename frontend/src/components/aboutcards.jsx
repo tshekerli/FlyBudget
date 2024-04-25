@@ -1,4 +1,4 @@
-import ScrollAnimation from "./scrollanimation2"
+import ScrollAnimation from "./scrollanimation"
 
 export default function AboutCard ({img, text}){
 

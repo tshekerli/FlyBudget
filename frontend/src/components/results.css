@@ -96,9 +96,9 @@
 
 .search-ui {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     min-height: 100vh;
-    align-items: stretch;
+    
   }
 
 .parentBox{

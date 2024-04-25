@@ -16,7 +16,7 @@ function ScrollAnimation({children}) {
     }, [isInView]);
     
     return (
-        <div ref={ref}>
+        <div ref={ref} style={{position:'relative'}}>
             <motion.div 
         variants={{
             hidden:{opacity:0, y:75},

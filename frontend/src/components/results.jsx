@@ -95,6 +95,7 @@ export function ResultContainer({ data, isLoading }) {
 
   if (!data) {
     return (
+      
       <SlidingDiv/>
     );
   }

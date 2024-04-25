@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import Navbar from "../components/navbar";
-import ScrollAnimation from "../components/scrollanimation2";
 import ScrollAnimation1 from "../components/scrollanimation";
 import Logo from "../img/logo.jpg";
 import AboutCard from "../components/aboutcards"
