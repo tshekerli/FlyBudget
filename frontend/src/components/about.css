@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Orienta&display=swap');
+body{
+    min-height: 100vh;
+}
+.aboutflex{
+    border: 2px solid black;
+    height: 400px;
+    width: 400px;
+    border-radius: 50%;
+}
+
+.textitems{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: "Orienta", sans-serif;
+    font-size: 1.5rem;
+    text-align: center;
+    width: 600px;
+    
+}
+
+
+
+.textitems :first-child{
+    font-size: 2.5rem;
+    max-width: 400px;
+    text-align: center;
+}

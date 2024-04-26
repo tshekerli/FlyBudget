@@ -5,10 +5,10 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 export default function LimitBy({onChange}) {
-  const [limit, setSort] = React.useState('');
+  const [limit, setLimit] = React.useState('25');
 
   const handleChange = (event) => {
-    setSort(event.target.value);
+    setLimit(event.target.value);
     
     onChange(event.target.value); 
   };
@@ -24,14 +24,11 @@ export default function LimitBy({onChange}) {
           onChange={handleChange}
           autoWidth
           label="Limit by"
-          defaultValue='25'
-         
         >
-          
           <MenuItem value={'10'}>10</MenuItem>
-           <MenuItem value={'25'}>25</MenuItem>
-           <MenuItem value={'50'}>50</MenuItem>
-           <MenuItem value={'100'}>100</MenuItem>
+          <MenuItem value={'25'}>25</MenuItem>
+          <MenuItem value={'50'}>50</MenuItem>
+          <MenuItem value={'100'}>100</MenuItem>
         </Select>
       </FormControl>
     </div>
