@@ -3,16 +3,34 @@ body{
     min-height: 100vh;
 }
 .aboutflex{
-    border: 2px solid black;
-    height: 400px;
-    width: 400px;
+    
+    height: 300px;
+    width: 300px;
     border-radius: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+}
+
+.aboutflex span {
+    float: left;
+    width: 200px;
+    height: 200px;
+    shape-outside: radial-gradient(circle closest-side, transparent 98%, rgba(0,0,0,0.5) 100%);
+    text-align: center;
+    font-size: 1.2em;
+    line-height: 1.5em;
 }
 
 .textitems{
     display: flex;
     flex-direction: column;
     text-align: center;
+    justify-content: center;
     font-family: "Orienta", sans-serif;
     font-size: 1.5rem;
     text-align: center;
@@ -22,8 +40,15 @@ body{
 
 
 
-.textitems :first-child{
+.firstp{
     font-size: 2.5rem;
-    max-width: 400px;
+    max-width: 600px;
     text-align: center;
+}
+
+.parentaboutflex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
 }
