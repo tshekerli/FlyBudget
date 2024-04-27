@@ -1,16 +1,15 @@
 import CurvedText from 'react-curved-text';
 
-export default function AboutFlex({writing, image, spaceCount}) {
+export default function AboutFlex({writing, image, spaceCount, fontsize, color}) {
   
     const spaces = Array(spaceCount).fill('\u00A0').join('');
   
-    
     const spacedText = writing.split(' ').join(spaces);
   
     return (
       <div className="aboutflex" style={{backgroundImage: `url(${image})`}}>
         <CurvedText  
-          textPathProps={{fill:"white", fontSize:"1.9em"}}
+          textPathProps={{fill:color, fontSize: fontsize}}
           reversed="true"
           text={spacedText}
           width={300} 
@@ -22,5 +21,4 @@ export default function AboutFlex({writing, image, spaceCount}) {
         />
       </div>
     );
-  }
-  
+}
