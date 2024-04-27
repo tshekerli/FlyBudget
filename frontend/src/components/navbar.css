@@ -50,10 +50,13 @@ nav li:last-child {
     margin-right: 5rem;
 }
 
-nav li:not(:first-child){
+.navlink {
     border: 1px solid rgb(187, 175, 175);
     padding: 10px;
     border-radius: 500px;
     box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+    font-weight: bold;
+    color: #747474;
+    
 }
 

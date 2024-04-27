@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Acme&family=Orienta&display=swap');
 body{
     min-height: 100vh;
+    font-family: "Orienta", sans-serif !important;
 }
 .aboutflex{
     
@@ -15,21 +16,32 @@ body{
     align-items: center;
     font-size: 3rem;
     color: white;
+    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
 }
 
 @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+  0% {
+    transform: rotate(0deg);
   }
-  
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinbackwards {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
   .aboutflex :first-child {
    
     animation: spin 20s linear infinite;
     will-change: transform;
+    
+    
   }
 
 .textitems{
@@ -57,10 +69,81 @@ body{
     align-items: center;
     justify-content: center;
     gap: 4rem;
+    font-family: "Orienta", sans-serif;
+    color: #747474;
 }
 
 .socialicon {
-  
-  color: black;
-  
+  font-size: 2em !important;
+  transition: font-size 0.3s ease !important;
+  text-decoration: none;
+  color: #747474;
+}
+
+.socialicon:hover {
+  font-size: 3em !important;
+}
+
+
+.aboutustext h1{
+  font-size: 2em;
+
+}
+.aboutustext{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 350px;
+    width: 350px;
+    border-radius: 10%;
+    color: white;
+    align-self: center;
+    margin: 2rem;
+    
+}
+
+.firsth1{
+  margin-bottom: 10rem !important;
+  margin-right: 5rem !important;
+  font-weight: bold;
+  animation: spin 30s linear infinite;
+
+}
+
+.firsth1:hover{
+  animation: none;
+}
+
+.secondh1{
+  margin-top: 10rem !important;
+  font-weight: bold;
+  animation: spinbackwards 30s linear infinite;
+
+}
+
+.secondh1:hover{
+  animation:none
+}
+
+.secondflex{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    width: 400px;
+    color: white;
+    align-self: center !important;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10%;
+    margin-bottom: 2rem;
+
 }
