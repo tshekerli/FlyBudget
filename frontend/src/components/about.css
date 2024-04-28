@@ -117,3 +117,22 @@ body{
     
 
 }
+
+
+@media (max-width: 600px){
+
+.childaboutflex{
+  flex-direction: column !important;
+  
+}
+
+.textitems{
+  max-width: 390px;
+}
+
+.secondflex{
+  width: 390px;
+  height: 290px;
+}
+
+}

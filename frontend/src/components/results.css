@@ -137,7 +137,20 @@ body{
     transform: scale(1.1);
 }
 
-
+.modalbox {
+    width: 600px;
+    height: 600px;
+    background-size: "cover";
+    background-repeat: "no-repeat";
+    background-position: "center";
+    color: "white";
+    display: "flex";
+    flex-direction: "column";
+    justify-content: "center";
+    align-items: "center";
+    text-align: "center";
+    gap: "10px";
+}
 
 
 
@@ -202,7 +215,9 @@ body{
         margin-right: auto;
         margin-left: auto;
     }
-
+    .searchbox-outer{
+        flex-direction: column;
+    }
     .parentBox {
         height: 600px;
         width: 600px;
@@ -242,5 +257,59 @@ body{
     .fourth-image404 {
         width: 200px
     }
+
+}
+
+
+@media screen and (max-width: 500px){
+    .search-ui{
+        flex-direction: column !important;
+    }
+    .searchbox-outer{
+        flex-direction: column;
+    }
+
+    .parentBox{
+        
+        width: 400px;
+        height: 400px;
+        margin-bottom: 2rem;
+    }
+    .parentBox .first-image, .parentBox  .second-image, .parentBox  .third-image, .parentBox  .fourth-image {
+        width: 200px;
+        height: 200px;
+        
+    }
+    .modalbox{
+        width: 400px ;
+        
+        flex-direction: row !important;
+        flex-wrap: wrap;
+        gap: 5px !important
+        
+    }
+
+    #modal-link,
+#modal-from,
+#modal-time,
+#modal-price {
+    font-size: 15px;
+    transition: color 0.3s ease, font-size 0.3s ease;
+    padding: 5px;
+}
+
+#modal-link:hover,
+#modal-from:hover,
+#modal-time:hover,
+#modal-price:hover {
+    font-size: 20px;
+}
+
+.searchbox{
+    margin-left: 0 !important;
+}
+
+
+
 
 }

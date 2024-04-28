@@ -190,6 +190,7 @@ export function ResultContainer({ data, isLoading }) {
                     href={item.link}
                     className="search-link"
                     target="_blank"
+                    
                     style={{ color: "white" }}
                   >
                     Link
@@ -200,6 +201,8 @@ export function ResultContainer({ data, isLoading }) {
           ))}
           {selectedItem && (
             <Modal
+
+            
               open={open}
               onClose={handleClose}
               style={{
@@ -214,13 +217,13 @@ export function ResultContainer({ data, isLoading }) {
               }}
             >
               <Modal.Content
+              className="modalbox"
                 style={{
                   backgroundImage: `url(${selectedImage})`,
                   backgroundSize: "cover",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
-                  minHeight: "600px",
-                  minWidth: "600px",
+                  
                   color: "white",
                   display: "flex",
                   flexDirection: "column",

@@ -33,7 +33,13 @@ function NotFoundPage() {
       <div className="img404">
         <SlidingImage />
       </div>
+      <div>
+        <ScrollAnimation>
+        <p style={{fontSize:'1.5rem', fontWeight:'bold', textAlign:'center'}}>Please click the button below for homepage</p>
+        </ScrollAnimation>
+      </div>
       <div style={{height:"150px"}}>
+
         <ButtonComponent
           id="takemehome"
           text={"Take Me Home, Country Roads "}
