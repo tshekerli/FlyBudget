@@ -72,6 +72,8 @@ body{
     gap: 4rem;
     font-family: "Orienta", sans-serif;
     color: #747474;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 }
 .childaboutflex{
     display: flex;

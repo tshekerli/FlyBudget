@@ -94,6 +94,8 @@ const text = (
 
 const myskills = <ScrollAnimation1><p>My skills</p></ScrollAnimation1>
 const myskills2 = <ScrollAnimation1><p>As a proficient Python and JavaScript developer, I'm skilled in Django, Express.js, Redux.js, and React.js. I manage databases with PostgreSQL, perform numerical operations with NumPy, and use Git for version control. I'm experienced in HTML5, CSS, DOM, JWT security, and Material-UI design. My understanding of REST APIs and OOP principles makes me a comprehensive full-stack developer.</p></ScrollAnimation1>
+const aboutthissite = <ScrollAnimation1><p>About this site</p></ScrollAnimation1>
+const aboutthissite2 = <ScrollAnimation1><p>This website is built with React and enhanced with libraries like Redux.js for state management, Material-UI and Emotion for styling, and FontAwesome for icons. Animations are handled by Framer Motion and GSAP. Testing is facilitated by Jest DOM and React Testing Library. Other notable libraries include Day.js for date handling, dotenv for environment variable management, and Semantic UI for additional UI components. Routing is managed by React Router, and various other libraries are used to enrich the user experience.</p></ScrollAnimation1>
 
 
 function SecondParentAboutFlex() {
@@ -124,13 +126,8 @@ function SecondParentAboutFlex() {
       </div>
 
       <div className="childaboutflex">
-      <AboutFlex
-        writing={"Who We Are"}
-        image={First}
-        spaceCount={4}
-        fontsize="1.9em"
-        color={"white"}
-      />
+      
+      <ScrollAnimation1><SecondParentAboutFlex/></ScrollAnimation1>
       <Textbox firstp={aboutme} children={text} />
       </div>
 
@@ -141,7 +138,35 @@ function SecondParentAboutFlex() {
         children={myskills2}
         />
 
-      <ScrollAnimation1><SecondParentAboutFlex/></ScrollAnimation1>
+      
+      <AboutFlex
+        writing={"About My Skills"}
+        image={First}
+        spaceCount={4}
+        fontsize="1.5em"
+        color={"white"}
+      />
+
+      
+      </div>
+      <div className="childaboutflex">
+        
+
+      <AboutFlex
+        writing={"About This Site"}
+        image={Fifth}
+        spaceCount={4}
+        fontsize="1.5em"
+        color={"white"}
+      />
+
+        <Textbox
+        firstp={aboutthissite}
+        children={aboutthissite2}
+        />
+
+      
+      
 
       
       </div>
