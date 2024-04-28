@@ -1,7 +1,7 @@
 import {sendRequest} from "../services/requests.js";
 
 const parseResponse = (response) => {
-    console.log(response)
+    
     if (response.data.length === 0) {
         return [];
     }
