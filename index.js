@@ -5,7 +5,7 @@ import cors from "cors"
 dotenv.config();
 
 const app = Express();
-const port = 443;
+const port = 5000;
 app.use(router);
 app.use(cors)
 
