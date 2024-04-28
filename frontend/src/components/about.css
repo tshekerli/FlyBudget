@@ -67,11 +67,21 @@ body{
 .parentaboutflex{
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
     gap: 4rem;
     font-family: "Orienta", sans-serif;
     color: #747474;
 }
+.childaboutflex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    font-family: "Orienta", sans-serif;
+    color: #747474;
+}
+
 
 .socialicon {
   font-size: 2em !important;
@@ -85,49 +95,7 @@ body{
 }
 
 
-.aboutustext h1{
-  font-size: 2em;
 
-}
-.aboutustext{
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 350px;
-    width: 350px;
-    border-radius: 10%;
-    color: white;
-    align-self: center;
-    margin: 2rem;
-    
-}
-
-.firsth1{
-  margin-bottom: 10rem !important;
-  margin-right: 5rem !important;
-  font-weight: bold;
-  animation: spin 30s linear infinite;
-
-}
-
-.firsth1:hover{
-  animation: none;
-}
-
-.secondh1{
-  margin-top: 10rem !important;
-  font-weight: bold;
-  animation: spinbackwards 30s linear infinite;
-
-}
-
-.secondh1:hover{
-  animation:none
-}
 
 .secondflex{
   display: flex;
@@ -144,6 +112,6 @@ body{
     margin-left: auto;
     margin-right: auto;
     border-radius: 10%;
-    margin-bottom: 2rem;
+    
 
 }

@@ -1,4 +1,5 @@
 import CurvedText from 'react-curved-text';
+import ScrollAnimation from './scrollanimation';
 
 export default function AboutFlex({writing, image, spaceCount, fontsize, color}) {
   
@@ -7,7 +8,8 @@ export default function AboutFlex({writing, image, spaceCount, fontsize, color})
     const spacedText = writing.split(' ').join(spaces);
   
     return (
-      <div className="aboutflex" style={{backgroundImage: `url(${image})`}}>
+      <ScrollAnimation>
+        <div className="aboutflex" style={{backgroundImage: `url(${image})`}}>
         <CurvedText  
           textPathProps={{fill:color, fontSize: fontsize}}
           reversed="true"
@@ -20,5 +22,6 @@ export default function AboutFlex({writing, image, spaceCount, fontsize, color})
           ry={100}
         />
       </div>
+      </ScrollAnimation>
     );
 }

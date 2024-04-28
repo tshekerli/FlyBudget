@@ -18,14 +18,9 @@ function About() {
       <ScrollAnimation1>
         <Navbar />
       </ScrollAnimation1>
-      <div className="aboutustext" style={{backgroundImage:`url(${Logo})`, }}>
-
       
-      <ScrollAnimation1><h1 className="firsth1">FLY BUDGET</h1></ScrollAnimation1>
-      <ScrollAnimation1><h1 className="secondh1">ABOUT US</h1></ScrollAnimation1>
-      </div>
       <FirstParentAboutFlex/>
-      <ScrollAnimation1><SecondParentAboutFlex/></ScrollAnimation1>
+      
       
 
       <Footer />
